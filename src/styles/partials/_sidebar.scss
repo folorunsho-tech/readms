@@ -1,0 +1,44 @@
+$user-card-bg-color: #475569;
+
+.sidebar {
+  width: 50%;
+  display: none;
+  background-color: #1f2937;
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 5rem;
+  }
+  .user-card {
+    padding: 1rem;
+    background: $user-card-bg-color;
+    height: 10%;
+  }
+  .nav-link {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      background-color: tomato;
+    }
+  }
+  .active {
+    background-color: tomato;
+  }
+}
+.sidebar-visible {
+  transition: all 0.3s ease-in-out;
+  display: block;
+}
+
+@media screen and (min-width: 750px) {
+  .sidebar {
+    width: 13rem;
+  }
+}
+@media screen and (min-width: 800px) {
+  .sidebar {
+    width: 15rem;
+  }
+}

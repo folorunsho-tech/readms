@@ -1,8 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+.single-nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: #1e293b;
+}
+.single-nav .hamburger-button {
+  padding: 0.6rem 1rem;
+  font-size: xx-large;
+  font-weight: 400;
+  border: none;
+  color: white;
+  background-color: #475569;
+}
+.single-nav .hamburger-button i {
+  color: white;
+}
+.single-nav .hamburger-button-transform {
+  transition: all 0.3s ease-in-out;
+  rotate: 90deg;
+}
+.single-nav .header-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1rem;
+}
+.single-nav .header-container .nav-title {
+  display: flex;
+  color: white;
+  align-items: center;
+  gap: 1rem;
+}
+.single-nav .header-container .nav-cta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.single-nav .header-container .nav-cta #delete {
+  font-size: 1.3rem;
+  background: transparent;
+  border: none;
+  color: tomato;
+}
+.single-nav .header-container .nav-cta #save {
+  font-size: 1.4rem;
+  background: #22c55e;
+  border: none;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  background-color: #0f172a;
+  color: #64748b;
+  height: 100vh;
+}
+.main-container .main {
+  padding: 1rem;
+}
+
+.sidebar {
+  width: 50%;
+  display: none;
+  background-color: #1f2937;
+}
+.sidebar .sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 5rem;
+}
+.sidebar .user-card {
+  padding: 1rem;
+  background: #475569;
+  height: 10%;
+}
+.sidebar .nav-link {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.sidebar .nav-link:hover {
+  background-color: tomato;
+}
+.sidebar .active {
+  background-color: tomato;
+}
+
+.sidebar-visible {
+  transition: all 0.3s ease-in-out;
+  display: block;
+}
+
+@media screen and (min-width: 750px) {
+  .sidebar {
+    width: 13rem;
+  }
+}
+@media screen and (min-width: 800px) {
+  .sidebar {
+    width: 15rem;
+  }
+}
+.markdown {
+  font-family: "Open Sans", sans-serif;
+}
+
+.preview {
+  font-family: "Merriweather", serif;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  border: none;
+  cursor: pointer;
 }
 
 code {

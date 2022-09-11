@@ -1,0 +1,72 @@
+$nav-bg-color: #1e293b;
+$main-bg-color: #0f172a;
+$white: white;
+$hamburger-bg-color: #475569;
+$markdown-text-color: #64748b;
+$save-bg-color: #22c55e;
+.single-nav {
+  //   position: fixed;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: $nav-bg-color;
+  //   padding: 1rem;
+  .hamburger-button {
+    padding: 0.6rem 1rem;
+    font-size: xx-large;
+    font-weight: 400;
+    border: none;
+    color: $white;
+    background-color: $hamburger-bg-color;
+    i {
+      color: $white;
+    }
+  }
+  .hamburger-button-transform {
+    transition: all 0.3s ease-in-out;
+    rotate: 90deg;
+  }
+  .header-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 1rem;
+    .nav-title {
+      display: flex;
+      color: $white;
+      align-items: center;
+      gap: 1rem;
+    }
+    .nav-cta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      #delete {
+        font-size: 1.3rem;
+        background: transparent;
+        border: none;
+        color: tomato;
+      }
+      #save {
+        font-size: 1.4rem;
+        background: $save-bg-color;
+        border: none;
+        color: $white;
+        padding: 0.6rem 1rem;
+        border-radius: 6px;
+      }
+    }
+  }
+}
+.main-container {
+  display: flex;
+  width: 100%;
+  background-color: $main-bg-color;
+  color: $markdown-text-color;
+  height: 100vh;
+  //   justify-content: space-between;
+  .main {
+    padding: 1rem;
+  }
+}
