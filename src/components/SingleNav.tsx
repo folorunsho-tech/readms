@@ -7,9 +7,8 @@ import { FiTrash2 } from "react-icons/fi";
 import { AiOutlineSave } from "react-icons/ai";
 import { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa";
 import { BiChevronRight } from "react-icons/bi";
-
+import Avatar from "./Avatar";
 interface Props {
   children?: ReactNode;
   file?: object;
@@ -43,6 +42,7 @@ const SingleNav = ({ children, file }: Props) => {
             </button>
             <button id="save">
               <AiOutlineSave />
+              <span>Save File</span>
             </button>
           </div>
         </div>
@@ -89,7 +89,7 @@ const SingleNav = ({ children, file }: Props) => {
                 <AiFillHome /> Home
               </NavLink>
               <NavLink
-                to="/dashboard"
+                to="/files"
                 className={({ isActive }) =>
                   isActive ? "active nav-link" : "nav-link"
                 }
@@ -125,10 +125,15 @@ const SingleNav = ({ children, file }: Props) => {
                 <AiFillSetting /> Settings
               </NavLink>
             </nav>
-            <div className="user-card"></div>
+            <div className="user-card">
+              <Avatar username="tacheyon" url="/logo192.png" />
+              <button>
+                <span>Log Out</span> <BiChevronRight size={20} />
+              </button>
+            </div>
           </div>
         </aside>
-        <main className="main">{children}</main>
+        <main>{children}</main>
       </div>
     </>
   );

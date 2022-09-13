@@ -55,9 +55,23 @@ $save-bg-color: #22c55e;
         color: $white;
         padding: 0.6rem 1rem;
         border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        span {
+          font-size: small;
+        }
       }
     }
   }
+}
+#create {
+  font-size: 1.4rem;
+  background: $save-bg-color;
+  border: none;
+  color: $white;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
 }
 .main-container {
   display: flex;
@@ -68,5 +82,12 @@ $save-bg-color: #22c55e;
   //   justify-content: space-between;
   .main {
     padding: 1rem;
+  }
+}
+@media screen and (max-width: 760px) {
+  #save {
+    span {
+      display: none;
+    }
   }
 }

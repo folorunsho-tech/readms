@@ -1,0 +1,22 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  .avatar-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 1.2px solid #475569;
+  }
+  .user-icon {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .avatar {
+    span {
+      display: none;
+    }
+  }
+}

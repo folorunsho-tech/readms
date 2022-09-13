@@ -12,9 +12,22 @@ $user-card-bg-color: #475569;
     gap: 5rem;
   }
   .user-card {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     padding: 1rem;
     background: $user-card-bg-color;
-    height: 10%;
+    gap: 1rem;
+    button {
+      background-color: tomato;
+      color: white;
+      gap: 1rem;
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
   }
   .nav-link {
     transition: all 0.3s ease-in-out;
