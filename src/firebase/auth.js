@@ -7,19 +7,27 @@ import {
   updateProfile,
   // verifyBeforeUpdateEmail,
 } from "firebase/auth";
-import Cookies from "js-cookie";
-const auth = getAuth(app);
-const maxDate = 30;
-
-export const SignUp = async (email, password, username) => {
+// import Cookies from "js-cookie";
+export const auth = getAuth(app);
+// const maxDate = 30;
+export let currUser = {};
+export let loading = false;
+export const setCurrUser = (user) => {
+  currUser = user;
+};
+export const AddUser = async ({ email, password, username }) => {
+  loading = true;
   createUserWithEmailAndPassword(auth, email, password)
-    .then(() =>
+    .then(() => {
       updateProfile(auth.currentUser, {
         displayName: username,
-      })
-    )
+        photoURL: "..",
+      });
+      loading = false;
+    })
     .then(() => {
       console.log(auth.currentUser);
+      setCurrUser(auth.currentUser);
       // const user = auth.currentUser;
       // Cookies.set("userName", user.displayName, { expires: maxDate });
       // Cookies.set("userId", user.uid, { expires: maxDate });
@@ -31,8 +39,12 @@ export const SignUp = async (email, password, username) => {
       console.log(error);
     });
 };
-export const Login = async (email, password) => {
-  signInWithEmailAndPassword(auth, email, password).then(() => {
+export const Login = async ({ email, password }) => {
+  loading = true;
+  signInWithEmailAndPassword(auth, email, password).then((userCredentials) => {
+    console.log(userCredentials);
+    loading = false;
+
     // Cookies.set("userName", user.displayName, { expires: maxDate });
     // Cookies.set("userId", user.uid, { expires: maxDate });
     // Cookies.set("userEmail", user.email, { expires: maxDate });

@@ -5,15 +5,29 @@ import { AiFillHome } from "react-icons/ai";
 import { AiFillSetting } from "react-icons/ai";
 import { AiOutlineFileAdd } from "react-icons/ai";
 import { ReactNode } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { BiChevronRight } from "react-icons/bi";
 import Avatar from "./Avatar";
+import { LogOut, auth, setCurrUser } from "../firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 interface Props {
   children?: ReactNode;
   // any props that come into the component
 }
+
 const HomeNav = ({ children }: Props) => {
   const [showSideBar, setShowSideBar] = React.useState(false);
+  const navigate = useNavigate();
+  React.useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setCurrUser(user);
+        navigate("/dashboard", { replace: false });
+      } else {
+        navigate("/login", { replace: false });
+      }
+    });
+  }, []);
   return (
     <>
       <nav className="single-nav">
@@ -121,8 +135,11 @@ const HomeNav = ({ children }: Props) => {
               </NavLink>
             </nav>
             <div className="user-card">
-              <Avatar username="tacheyon" url="/logo192.png" />
-              <button>
+              <Avatar
+                username={auth.currentUser?.displayName}
+                // url={auth.currentUser?.photoURL}
+              />
+              <button onClick={LogOut}>
                 <span>Log Out</span> <BiChevronRight size={20} />
               </button>
             </div>
